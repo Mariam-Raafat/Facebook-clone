@@ -1,0 +1,11 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* .navbar-nav li{
+    display: inline-block;
+} */
+.custom-link{
+    color: black ;
+}

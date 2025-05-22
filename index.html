@@ -53,7 +53,9 @@
                           type="text"
                           class="form-control"
                           placeholder="Email address or phone number"
+                          required
                         />
+                        <div class="invalid-email custom-popup alert alert-danger" role="alert"></div>
                       </div>
                       <div>
                         <input
@@ -61,21 +63,24 @@
                           class="form-control"
                           type="password"
                           placeholder="Password"
+                          required
                         />
+                        <div class="invalid-password custom-popup alert alert-danger" role="alert"></div>
+
                       </div>
                       <div>
-                        <button class="btn btn-primary w-100">Login</button>
+                        <button class="btn btn-primary w-100" id="login-btn">Login</button>
                       </div>
 
                       <div class="forget-password text-center">
                         <a href="" class="link-underline-light"
-                          >Forgotten password</a
+                          id="forget-password">Forgotten password?</a
                         >
                       </div>
                       <hr />
                       <div class="creat-account text-center">
                         <a href="" class="btn btn-success"
-                          >Create new account</a
+                          id="create-btn">Create new account</a
                         >
                       </div>
                     </div>
@@ -84,7 +89,7 @@
                 <div class="create-page">
                   <p>
                     <a href="" class="link-underline-light text-black fw-bold"
-                      >Create a Page</a
+                      id="create-page">Create a Page</a
                     >
                     for a celebrity, brand or business.
                   </p>
