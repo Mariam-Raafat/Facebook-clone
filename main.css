@@ -3,9 +3,22 @@
     padding: 0;
     box-sizing: border-box;
 }
-/* .navbar-nav li{
-    display: inline-block;
-} */
+
 .custom-link{
     color: black ;
 }
+
+/* Animate chatbot logo */
+.logo img {
+    width: 150px;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }

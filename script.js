@@ -7,10 +7,11 @@ const loginBtn = document.getElementById("login-btn");
 const emailReg = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$/;
 const passwordReg = /^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/;
 const emailErrorMessage = document.querySelector(".invalid-email");
-emailErrorMessage.style.display = "none";
 const passwordErrorMessage = document.querySelector(".invalid-password");
-passwordErrorMessage.style.display = "none";
 const userData = [];
+let id = 0;
+emailErrorMessage.style.display = "none";
+passwordErrorMessage.style.display = "none";
 
 // Add validation to email
 emailInput.addEventListener("input", function () {
@@ -45,34 +46,41 @@ passwordInput.addEventListener("input", function () {
     const invalidPassword = document.createElement("p");
     invalidPassword.innerText =
       "Password must be at least 6 characters long and include at least one lowercase letter, one number, and one special character (#?!@$%^&*-).";
-      passwordErrorMessage.appendChild(invalidPassword);
+    passwordErrorMessage.appendChild(invalidPassword);
   }
 });
 
 loginBtn.addEventListener("click", function (e) {
   e.preventDefault();
-  if (emailInput.value === ""||passwordInput.value === "") {
+  if (emailInput.value === "" || passwordInput.value === "") {
     return;
   }
+  id++;
   const userInfo = {
     email: emailInput.value,
     password: passwordInput.value,
+    id: id,
   };
   userData.push(userInfo);
   saveUserData();
-    window.location.href = "main.html";
+  window.location.href = "main.html";
 });
 
 // Save user's data on local storage //
 function saveUserData() {
-    localStorage.setItem("userData",JSON.stringify(userData));
+  localStorage.setItem("userData", JSON.stringify(userData));
 }
 // Get user's data from local storage//
-function getUserData(){
-   const savedData = localStorage.getItem("userData");
-    if(savedData){
-        const parsedData = JSON.parse(savedData);
-        userData.push(...parsedData);
+function getUserData() {
+  const savedData = localStorage.getItem("userData");
+  if (savedData) {
+    const parsedData = JSON.parse(savedData);
+    userData.push(...parsedData);
+
+    if (parsedData.length > 0) {
+      id = Math.max(...parsedData.map((item) => item.id));
+     
     }
+  }
 }
 getUserData();
