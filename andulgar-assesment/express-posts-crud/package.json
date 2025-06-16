@@ -1,0 +1,25 @@
+{
+  "name": "express-posts-crud",
+  "version": "1.0.0",
+  "description": "A simple Express server for CRUD operations on posts using a JSON file as a database.",
+  "main": "src/app.ts",
+  "scripts": {
+    "start": "ts-node src/app.ts",
+    "build": "tsc",
+    "dev": "ts-node-dev src/app.ts"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.4",
+    "ts-node": "^10.4.0",
+    "ts-node-dev": "^1.1.8",
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.11.7"
+  },
+  "author": "",
+  "license": "ISC"
+}
